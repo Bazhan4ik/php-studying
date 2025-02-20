@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+.screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 124px;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgb(223, 223, 255);
+  flex-direction: column;
+  padding-bottom: 200px;
+}
+
+
+form {
+  width: 428px;
+  padding: 24px;
+  border-radius: 12px;
+  
+  background-color: rgb(196, 196, 253);
+}
+
+
+.title {
+  margin-bottom: 12px;
+}
+
+
+.title h1 {
+  margin: 0;
+  
+  font-family: "DM Serif Text", serif;
+  color: #3b3b4c;
+}
+
+
+
+.message-input, .input {
+  margin-top: 16px;
+  /* display: grid;
+  grid-template-columns: 96px 1fr; */
+  /* align-items: center; */
+  display: flex;
+  flex-direction: column;
+  margin-left: 8px;
+}
+textarea, input {
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #9e89b1;
+  border-right: 2px solid #9e89b1;
+  border-radius: 10px;
+
+  margin-top: 5px;
+  padding: 0 10px;
+  max-width: 196px;
+  height: 32px;
+  
+  background-color: #E1C4FD;
+  
+  font-family: "Noto Serif", serif;
+}
+textarea {
+  max-width: 332px;
+  max-height: 300px;
+  width: 332px;
+
+  padding-top: 10px;
+
+  resize: vertical;
+}
+
+textarea::placeholder, .input input::placeholder {
+  color: #9e89b1;
+}
+
+.message-input label, .input label {
+  font-size: 18px;
+  font-family: "Noto Serif", serif;
+  color: #444457;
+}
+
+.submit {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submit input {
+  cursor: pointer;
+  transition: .5s all ease-in-out; 
+}
+.submit input:hover {
+  scale: 1.05;
+}
+
+.required-message {
+  font-size: 12px;
+  color: red;
+}
+.bottom {
+  padding-left: 8px;
+  margin-top: 32px;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.big-err {
+  color: red;
+  font-family: "Noto Serif", serif;
+}
+
+
+
+.messages {
+  margin-top: 124px;
+  width: 428px;
+  padding: 24px;
+  border-radius: 12px;
+  
+  background-color: rgb(196, 196, 253);
+
+}
+.messages .title h2 {
+  margin: 0;
+  font-size: 32px;
+   
+  font-family: "DM Serif Text", serif;
+  color: #3b3b4c;
+
+}

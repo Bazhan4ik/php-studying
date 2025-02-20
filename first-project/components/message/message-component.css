@@ -1,0 +1,59 @@
+.message {
+  width: 100%;
+  border-bottom: 2px solid #3b3b4c34;
+  padding: 0;
+  margin: 0;
+  margin-top: 24px;
+}
+
+.name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.name p {
+  font-size: 20px;
+  color: #444457;
+  font-family: "Noto Serif", serif;
+  margin: 0;
+}
+.name button {
+  background: transparent;
+  width: 32px;
+  height: 32px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.name button img {
+  width: 21px;
+  height: 21px;
+}
+.email p {
+  font-size: 14px;
+  color: #535363bd;
+  font-family: "Noto Serif", serif;
+  margin: 0;
+}
+
+.text {
+  display: flex;
+  margin-top: 6px;
+}
+.text .quote {
+  font-family: "DM Serif Text", serif;
+  margin: 0;
+  font-size: 32px;
+  color: #764f97;
+}
+.text .msg {
+  padding-left: 4px;
+  padding-top: 6px;
+  font-size: 16px;
+  color: #535363;
+  font-family: "Noto Serif", serif;
+  margin: 0;
+}
