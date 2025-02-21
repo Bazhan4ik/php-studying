@@ -29,12 +29,6 @@ class Message {
 
     return;
   }
-
-  public function delete() {
-
-  }
-
-  
 }
 
 
