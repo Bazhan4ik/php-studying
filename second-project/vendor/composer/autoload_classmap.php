@@ -6,9 +6,9 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Classes\\AuthController' => $baseDir . '/src/classes/auth/auth.controller.php',
+    'App\\Classes\\HomeController' => $baseDir . '/src/classes/home/home.controller.php',
     'App\\Controller' => $baseDir . '/src/controller.php',
-    'App\\Controllers\\HomeController' => $baseDir . '/src/controllers/home.controller.php',
-    'App\\Controllers\\LoginController' => $baseDir . '/src/controllers/login.controller.php',
     'App\\Router' => $baseDir . '/src/router.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
 );
