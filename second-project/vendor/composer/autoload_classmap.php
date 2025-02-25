@@ -11,4 +11,5 @@ return array(
     'App\\Controller' => $baseDir . '/src/controller.php',
     'App\\Router' => $baseDir . '/src/router.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'PDO' => $baseDir . '/src/classes/PDO/pdo.php',
 );

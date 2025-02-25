@@ -13,7 +13,7 @@
 
 
     
-    <a href="/login" class="cool-link">go to login</a>
+    <a href="/auth" class="cool-link">go to login</a>
   </body>
 
 </html>

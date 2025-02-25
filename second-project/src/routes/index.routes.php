@@ -10,6 +10,7 @@ $router = new Router();
 // uses HomeController and executes index() method
 $router->get('/', HomeController::class, 'index');
 $router->get('/auth', AuthController::class, 'index');
+$router->post('/login', AuthController::class, 'login');
 
 
 

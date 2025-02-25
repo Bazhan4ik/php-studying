@@ -9,15 +9,21 @@ class AuthController extends Controller {
   public function index() {
     $url = htmlspecialchars("https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
     $parts = parse_url($url);
-    parse_str($parts['query'], $query);
-
+    
     // echo $url;
-    if($query["signup"]) {
-      include "../src/classes/auth/signup.view.php";
-    } else {
-      include "../src/classes/auth/login.view.php";
+    if(isset($parts["query"])) {
+      parse_str($parts['query'], $query);
+      if(isset($query["signup"])) {
+        include "../src/classes/auth/signup.view.php";
+        return;
+      }
     }
 
+    include "../src/classes/auth/login.view.php";
+  }
+
+  public function login() {
+    var_dump($_POST);
   }
 
 }
