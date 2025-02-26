@@ -8,8 +8,8 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Classes\\AuthController' => $baseDir . '/src/classes/auth/auth.controller.php',
     'App\\Classes\\HomeController' => $baseDir . '/src/classes/home/home.controller.php',
+    'App\\Classes\\PDO' => $baseDir . '/src/classes/PDO/pdo.php',
     'App\\Controller' => $baseDir . '/src/controller.php',
     'App\\Router' => $baseDir . '/src/router.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-    'PDO' => $baseDir . '/src/classes/PDO/pdo.php',
 );

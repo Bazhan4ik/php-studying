@@ -1,31 +1,42 @@
 <?php
-// namespace App\Classes;
+namespace App\Classes;
 
-
-$host = '127.0.0.1';
-$db   = 'test';
-$user = 'root';
-$pass = '';
-$charset = 'utf8mb4';
-
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-$options = [
-  PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-  PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-  PDO::ATTR_EMULATE_PREPARES   => false,
-];
-
+use PDOException;
 
 
 class PDO {
+
+  private $user = 'chad-db';
+  private $pass = 'realchad';
+
+  private $dsn = "mysql:host=127.0.0.1;dbname=test;charset=utf8mb4";
+  private $options = [
+    \PDO::ATTR_ERRMODE            => \PDO::ERRMODE_EXCEPTION,
+    \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
+    \PDO::ATTR_EMULATE_PREPARES   => false,
+  ];
+
+
   private $pdo;
 
-  function __construct() {
-    global $dsn, $user, $pass, $options;
+  public function __construct() {
 
-    $this->pdo = new PDO($dsn, $user, $pass, $options);
+    $this->pdo = new \PDO($this->dsn, $this->user, $this->pass, $this->options);
   }
 
+
+  public function execute($query, $data) {
+
+    try {
+      $statement = $this->pdo->prepare($query);
+      $statement->execute($data);
+
+      return $statement;
+    } catch (PDOException $e) {
+      echo var_dump($e);
+      echo "error";
+    }
+  }
 }
 
 

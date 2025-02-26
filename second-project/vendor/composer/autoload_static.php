@@ -23,10 +23,10 @@ class ComposerStaticInitd751713988987e9331980363e24189ce
     public static $classMap = array (
         'App\\Classes\\AuthController' => __DIR__ . '/../..' . '/src/classes/auth/auth.controller.php',
         'App\\Classes\\HomeController' => __DIR__ . '/../..' . '/src/classes/home/home.controller.php',
+        'App\\Classes\\PDO' => __DIR__ . '/../..' . '/src/classes/PDO/pdo.php',
         'App\\Controller' => __DIR__ . '/../..' . '/src/controller.php',
         'App\\Router' => __DIR__ . '/../..' . '/src/router.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'PDO' => __DIR__ . '/../..' . '/src/classes/PDO/pdo.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

@@ -38,10 +38,6 @@
 		for(let el of document.getElementsByClassName("form-input")) {
 			el.addEventListener("change", event => {
 				event.target.classList.remove("required-error")
-				
-				if(event.target.id == "email") {
-
-				}
 			});
 		}
 		
@@ -49,12 +45,15 @@
 			const email = document.getElementById("email").value;
 			const password = document.getElementById("password").value;
 
-			if(!email || !password) {
-				document.getElementById("email").classList.add("required-error");
-			}
-			if(!password) {
-				document.getElementById("password").classList.add("required-error");
-			}
+      if(!email || !password) {
+        if(!email) {
+          document.getElementById("email").classList.add("required-error");
+        }
+        if(!password) {
+          document.getElementById("password").classList.add("required-error");
+        }
+        return;
+      }
 
 			$.ajax({
 				url: "/login",
