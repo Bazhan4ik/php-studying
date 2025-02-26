@@ -2,7 +2,7 @@
 
 <html>
 <head>
-	<link rel="icon" type="image/png" href="/favicon.png"/>
+  <title>Login</title>
 </head>
 
 
@@ -31,45 +31,7 @@
   </div>
 
 	<script>
-		// document.getElementById("autism").addEventListener("click", e => {
-		// 	console.log("HOEHOUTSTHOESNTU");
-		// });
-
-		for(let el of document.getElementsByClassName("form-input")) {
-			el.addEventListener("change", event => {
-				event.target.classList.remove("required-error")
-			});
-		}
-		
-		document.getElementById("login-btn").addEventListener("click", event => {
-			const email = document.getElementById("email").value;
-			const password = document.getElementById("password").value;
-
-      if(!email || !password) {
-        if(!email) {
-          document.getElementById("email").classList.add("required-error");
-        }
-        if(!password) {
-          document.getElementById("password").classList.add("required-error");
-        }
-        return;
-      }
-
-			$.ajax({
-				url: "/login",
-				type: "POST",
-				data: {
-					email, password,
-				},
-				success: loginRequestSuccess
-			});
-
-		});
-
-
-		function loginRequestSuccess(data) {
-			console.log(data);
-		}
+    <?php include "../src/classes/auth/login.js" ?>
 	</script>
 </body>
 </html>

@@ -31,7 +31,7 @@ class PDO {
       $statement = $this->pdo->prepare($query);
       $statement->execute($data);
 
-      return $statement;
+      return $statement->fetchAll();
     } catch (PDOException $e) {
       echo var_dump($e);
       echo "error";

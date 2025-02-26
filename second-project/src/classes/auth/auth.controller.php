@@ -30,12 +30,38 @@ class AuthController extends Controller {
   }
 
   public function login() {
-    var_dump($_POST);
+    $_POST = filter_var_array($_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+
+    $requestRes = $this->pdo->execute(
+      "SELECT * FROM users WHERE email = :email LIMIT 1",
+      [ 'email' => $email ]
+    );
+
+    if(!$requestRes || !isset($requestRes[0])) {
+      var_dump($requestRes);
+      echo json_encode([ 'error' => 'invalid_data' ]);
+      return;
+    }
+
+    $user = $requestRes[0];
+
+    $correctPassword = password_verify($password, $user['password']);
+
+    if(!$correctPassword) {
+      echo json_encode([ 'error' => 'incorrect_password' ]);
+      return;
+    }
+    
+
+
+
+
+    var_dump($user);
   }
 
   public function signup() {
-    global $pdo;
-
     $_POST = filter_var_array($_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $email = $_POST["email"];
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
