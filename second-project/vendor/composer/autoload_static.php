@@ -24,6 +24,7 @@ class ComposerStaticInitd751713988987e9331980363e24189ce
         'App\\Classes\\AuthController' => __DIR__ . '/../..' . '/src/classes/auth/auth.controller.php',
         'App\\Classes\\HomeController' => __DIR__ . '/../..' . '/src/classes/home/home.controller.php',
         'App\\Classes\\PDO' => __DIR__ . '/../..' . '/src/classes/PDO/pdo.php',
+        'App\\Classes\\PostsController' => __DIR__ . '/../..' . '/src/classes/posts/posts.controller.php',
         'App\\Controller' => __DIR__ . '/../..' . '/src/controller.php',
         'App\\Router' => __DIR__ . '/../..' . '/src/router.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',

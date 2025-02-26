@@ -14,6 +14,14 @@ class AuthController extends Controller {
   }
 
   public function index() {
+
+    // check if the user is already logged out
+    session_start();
+    if(isset($_SESSION)) {
+      header("Location: /auth");
+      exit;
+    }
+
     $url = htmlspecialchars("https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
     $parts = parse_url($url);
     
@@ -53,12 +61,21 @@ class AuthController extends Controller {
       echo json_encode([ 'error' => 'incorrect_password' ]);
       return;
     }
+
+    $authToken = bin2hex(random_bytes(20));
     
+    session_start();
+    $_SESSION["authToken"] = $authToken;
 
+    $this->pdo->execute(
+      "UPDATE users SET authToken = :token WHERE email = :email",
+      [ 'email' => $email, 'token' => $authToken ]
+    );
 
+    echo json_encode([ 'success' => true ]);
+    
+    die();
 
-
-    var_dump($user);
   }
 
   public function signup() {

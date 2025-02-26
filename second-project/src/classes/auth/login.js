@@ -32,4 +32,8 @@ document.getElementById("login-btn").addEventListener("click", event => {
 
 function loginRequestSuccess(data) {
   console.log(data);
+  const response = JSON.parse(data);
+  if(response.success) {
+    window.location.href = "/posts";
+  }
 }
