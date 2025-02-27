@@ -83,6 +83,7 @@ document.getElementById("post-btn").addEventListener("click", event => {
         tagsDiv.classList.add("tags");
         tags.split(" ").forEach(tag => {
           let tagP = document.createElement("p");
+          tagP.classList.add("tag");
           tagP.textContent = tag;
           tagsDiv.appendChild(tagP);
         });

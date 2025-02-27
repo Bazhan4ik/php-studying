@@ -10,15 +10,26 @@ class PostsController extends Controller {
   private $pdo;
 
   public function __construct() {
+    if(session_status() === PHP_SESSION_NONE) {
+      session_start();
+    }
     $this->pdo = new PDO();
   }
 
   // the action that is called when the controller matches the request
   public function index() {
     // renders views/index.php
-    session_start();
 
     if(!isset($_SESSION["authToken"])) {
+      header("Location: /auth");
+      exit;
+    }
+
+    $user = $this->getUser();
+
+    if(!isset($user)) {
+      session_unset();
+      session_destroy();
       header("Location: /auth");
       exit;
     }
@@ -28,7 +39,6 @@ class PostsController extends Controller {
 
 
   public function addPost() {
-    session_start();
 
     $_POST = filter_var_array($_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
@@ -49,7 +59,6 @@ class PostsController extends Controller {
     echo json_encode([ 'success' => true, 'userId' => $user['id'], 'postId' => $postId, 'userEmail' => $user['email'] ]);
   }
   public function removePost() {
-    session_start();
 
     $_POST = filter_var_array($_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 

@@ -55,6 +55,9 @@ function onSuccess(data) {
   if(result.success) {
     window.location.href = "/auth";
   } else {
+    if(result.error == "email") {
+      document.getElementById("email").classList.add("required-error"); 
+    }
     console.log(result.error);
   }
 }

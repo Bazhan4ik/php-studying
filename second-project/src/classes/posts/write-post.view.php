@@ -1,7 +1,7 @@
 <div class="post-form">
   <div class="header">
     <p>
-      Write your post
+      Write your post:
     </p>
   </div>
   <form id="post-form">

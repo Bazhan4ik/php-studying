@@ -28,7 +28,7 @@
     if(count($tags) > 0):
     ?>
       <?php foreach($tags as $tag): ?>
-        <p>
+        <p class="tag">
           <?php echo $tag ?>
         </p>
       <?php endforeach; ?>

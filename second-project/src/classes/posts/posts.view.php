@@ -35,16 +35,15 @@ $user = $postsController->getUser();
 <script> <?php include "./../src/classes/posts/posts.js"; ?> </script>
 
 
-
+<div class="posts" id="post-list">
 <?php
 if(count($posts) > 0):
 ?>
-  <div class="posts" id="post-list">
     <?php foreach($posts as $post): ?>
       <?php include "./../src/classes/posts/post.view.php"; ?>
     <?php endforeach; ?>
-  </div>
 <?php endif; ?>
+</div>
 
 
 </body>

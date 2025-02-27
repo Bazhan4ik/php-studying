@@ -1,10 +1,44 @@
 .required-error {
   border: 2px solid red;
 }
+.header {
+  width: 600px;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header .title {
+  border-bottom: 1px solid gray;
+}
+.header .logout {
+  margin-top: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid gray;
+}
 
-.post {
+.post-form {
+  width: 600px;
+  border-bottom: 1px solid gray;
+  padding-bottom: 12px;
+  background-color: rgb(248, 248, 248);
+}
+#post-form {
+  display: flex;
+  flex-direction: column;
+}
+#post-form input {
+  width: 300px;
+}
+#post-form textarea {
+  margin: 20px 0;
+  width: 500px;
+  resize: vertical;
+}
+#post-btn {
   margin-top: 20px;
-  border: 1px solid gray;
+  padding: 10px 16px;
 }
 
 .post .remove {
@@ -19,4 +53,26 @@
 .post .remove img {
   height: 32px;
   width: 32px;
+}
+
+.post {
+  margin-top: 20px;
+  border: 1px solid gray;
+  width: calc(600px - 12px * 2);
+  padding: 12px;
+}
+
+.post .title p {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.post .tags {
+  display: flex;
+  gap: 12px;
+}
+.post .tags .tag {
+  padding: 6px 10px;
+  border-radius: 6px;
+  background-color: rgb(211, 211, 255);
 }
