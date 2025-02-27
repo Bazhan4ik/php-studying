@@ -27,8 +27,10 @@
 		</form>
 
 		<button id="login-btn">Login</button>
-
+    
+    <a href="/auth?signup=1">Don't have an account?</a>
   </div>
+
 
 	<script>
     <?php include "../src/classes/auth/login.js" ?>

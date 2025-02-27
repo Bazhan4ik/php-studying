@@ -37,6 +37,18 @@ class PDO {
       echo "error";
     }
   }
+  public function executeReturnId($query, $data) {
+
+    try {
+      $statement = $this->pdo->prepare($query);
+      $statement->execute($data);
+
+      return $this->pdo->lastInsertId();
+    } catch (PDOException $e) {
+      echo var_dump($e);
+      echo "error";
+    }
+  }
 }
 
 

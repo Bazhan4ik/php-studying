@@ -1,0 +1,22 @@
+.required-error {
+  border: 2px solid red;
+}
+
+.post {
+  margin-top: 20px;
+  border: 1px solid gray;
+}
+
+.post .remove {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 158, 158);
+  cursor: pointer;
+}
+.post .remove img {
+  height: 32px;
+  width: 32px;
+}

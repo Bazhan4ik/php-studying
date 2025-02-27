@@ -15,10 +15,10 @@ class AuthController extends Controller {
 
   public function index() {
 
-    // check if the user is already logged out
+    // check if the user is already logged in
     session_start();
-    if(isset($_SESSION)) {
-      header("Location: /auth");
+    if(isset($_SESSION["authToken"])) {
+      header("Location: /posts");
       exit;
     }
 
@@ -66,6 +66,7 @@ class AuthController extends Controller {
     
     session_start();
     $_SESSION["authToken"] = $authToken;
+    $_SESSION["email"] = $email;
 
     $this->pdo->execute(
       "UPDATE users SET authToken = :token WHERE email = :email",
@@ -81,6 +82,16 @@ class AuthController extends Controller {
   public function signup() {
     $_POST = filter_var_array($_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $email = $_POST["email"];
+
+    $request_res = $this->pdo->execute(
+      "SELECT * FROM users WHERE email = :email",
+      [ 'email' => $email ]
+    );
+    if(isset($request_res[0])) {
+      echo json_encode([ 'success' => false, 'error' => 'email' ]);
+      exit;
+    }
+
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
     $authToken = bin2hex(random_bytes(20));
@@ -90,11 +101,19 @@ class AuthController extends Controller {
       [ 'email' => $email, 'password' => $password, 'token' => $authToken ]
     );
 
-    var_dump($request_res);
 
-    // echo json_encode([ 'email' => $email, 'password' => $password ]);
+    echo json_encode([ 'success' => true, 'email' => $email, 'password' => $password ]);
 
-    // var_dump($_POST);
+  }
+
+  public function logout() {
+
+    session_start();
+    session_unset();
+    session_destroy();
+
+    echo json_encode([ 'success' => true ]);
+
   }
 
 }

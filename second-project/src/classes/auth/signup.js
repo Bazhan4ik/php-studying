@@ -16,8 +16,6 @@ document.getElementById("signup-submit").addEventListener("click", event => {
   };
 
 
-  console.log(el);
-
 
   if(!el.email.value || !el.password.value || !el.password2.value) {
     if(!el.email.value) {
@@ -53,5 +51,10 @@ document.getElementById("signup-submit").addEventListener("click", event => {
 
 
 function onSuccess(data) {
-  console.log(data);
+  const result = JSON.parse(data);
+  if(result.success) {
+    window.location.href = "/auth";
+  } else {
+    console.log(result.error);
+  }
 }
