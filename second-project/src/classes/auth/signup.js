@@ -5,6 +5,7 @@ for(let el of document.getElementsByClassName("form-input")) {
 }
 	
 
+const emailRegex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 
 
 document.getElementById("signup-submit").addEventListener("click", event => {
@@ -28,6 +29,12 @@ document.getElementById("signup-submit").addEventListener("click", event => {
       el.password2.classList.add("required-error");
     }
     return;
+  }
+  if(!emailRegex.test(el.email.value)) {
+    el.email.classList.add("required-error");
+    return;
+  } else {
+    el.email.classList.remove("required-error");
   }
   if(el.password.value != el.password2.value) {
     el.password.classList.add("required-error");
